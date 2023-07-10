@@ -1,0 +1,43 @@
+.first-div {
+  color: blue;
+  font-size: 20px;
+}
+
+.first-class {
+  padding: 50px;
+  border: 1px dashed black;
+  border-radius: 10px;
+  color: red;
+  background-color: aqua;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: darkgray;
+  padding: 10px;
+}
+
+.box {
+  width: calc(33.333333% - 20px);
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+#big-block {
+  width: calc(66.666666% - 20px);
+}
+
+.shaq-image {
+  width: 400px;
+  border-radius: 50%;
+  height: 400px;
+  object-fit: cover;
+}
