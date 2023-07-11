@@ -1,0 +1,54 @@
+.box {
+  padding: 25px;
+  /* margin: 1px 2px 3px 4px; */
+  /* margin: 1px; */
+  margin: 10px 0px;
+  color: white;
+  background-color: black;
+  border: 2px solid yellow;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.box-2 {
+  padding: 25px;
+  /* margin: 1px 2px 3px 4px; */
+  /* margin: 1px; */
+  margin: 10px 0px;
+  color: black;
+  background-color: red;
+  border: 2px solid yellow;
+  border-radius: 10px;
+  max-width: 100px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.hello {
+  left: 25%;
+  top: 200px;
+}
+
+.there {
+  left: 15%;
+  top: 50px;
+}
+
+/* relative to its direct parent */
+.relative {
+  position: relative;
+}
+
+/* with regard to the window itself */
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+  top: 100px;
+  right: 50px;
+}

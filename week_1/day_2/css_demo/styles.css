@@ -1,0 +1,74 @@
+.hover-box {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
+/* The :hover selector is used to select elements when you mouse over them. */
+.hover-box:hover {
+  transform: translateX(150px) scale(0.5) rotate(45deg);
+}
+
+.spin-box {
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+
+  animation: spin;
+  animation-duration: 5s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-iteration-count: infinite;
+}
+
+/* The @keyframes rule specifies the animation code. */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.move-box {
+  margin-top: 50px;
+  width: 100px;
+  height: 100px;
+  background-color: green;
+
+  animation: move;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+    background-color: green;
+  }
+
+  25% {
+    transform: translate(0px, 300px);
+    background-color: purple;
+  }
+
+  50% {
+    transform: translate(300px, 300px);
+    background-color: red;
+  }
+
+  75% {
+    transform: translate(300px, 0px);
+    background-color: yellow;
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+    background-color: green;
+  }
+}
