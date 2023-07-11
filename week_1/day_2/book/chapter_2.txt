@@ -4,3 +4,6 @@ Once upon a time...from michelleDev
 Here
 Here hopefully 
 Here hopefully we get a merge error
+A message from michelle
+Another message from michelle
+A message from michelle again
