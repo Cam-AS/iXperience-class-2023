@@ -1,3 +1,11 @@
 .bold {
   font-weight: bold;
 }
+
+.show {
+  display: contents;
+}
+
+.hide {
+  display: none;
+}
