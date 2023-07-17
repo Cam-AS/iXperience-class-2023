@@ -4,6 +4,10 @@ class Book {
     this.author = author;
     this.isbn = isbn;
   }
+
+  static fromJSON(json) {
+    return new Book(json.title, json.author, json.isbn);
+  }
 }
 
 class UI {
@@ -19,19 +23,25 @@ class UI {
     this.form.addEventListener('submit', (e) => this.onFormSubmit(e));
 
     this.books = [];
-
+    this.loadBooksFromLocalStorage();
     this.renderBookTable();
   }
 
   onFormSubmit(e) {
     e.preventDefault();
 
-    if (this.title.value == '' || this.author == '' || this.isbn == '') {
+    if (
+      this.title.value == '' ||
+      this.author.value == '' ||
+      this.isbn.value == ''
+    ) {
       return;
     }
 
     const book = new Book(this.title.value, this.author.value, this.isbn.value);
     this.books.push(book);
+
+    this.saveBooksToLocalStorage();
     this.renderBookTable();
 
     this.title.value = '';
@@ -62,7 +72,7 @@ class UI {
     tdAuthor.innerHTML = book.author;
     tdIsbn.innerHTML = book.isbn;
 
-    const actionButtons = this.createActionButtons();
+    const actionButtons = this.createActionButtons(book);
     tdActions.appendChild(actionButtons[0]);
     tdActions.appendChild(actionButtons[1]);
 
@@ -74,23 +84,65 @@ class UI {
     return tr;
   }
 
-  createActionButtons() {
+  createActionButtons(book) {
     const deleteButton = document.createElement('button');
     const editButton = document.createElement('button');
 
     deleteButton.setAttribute('class', 'btn btn-danger btn-sm me-1');
     deleteButton.innerHTML = 'Delete';
     deleteButton.addEventListener('click', () => {
-      console.log('Delete was clicked');
+      this.onDeleteBookClicked(book);
     });
 
     editButton.setAttribute('class', 'btn btn-warning btn-sm ms-1');
     editButton.innerHTML = 'Edit';
     editButton.addEventListener('click', () => {
-      console.log('Edit was clicked');
+      this.onEditBookClicked(book);
     });
 
     return [deleteButton, editButton];
+  }
+
+  onDeleteBookClicked(book) {
+    this.filterBookArray(book);
+    this.saveBooksToLocalStorage();
+    this.renderBookTable();
+  }
+
+  onEditBookClicked(book) {
+    this.filterBookArray(book);
+
+    this.title.value = book.title;
+    this.author.value = book.author;
+    this.isbn.value = book.isbn;
+
+    this.saveBooksToLocalStorage();
+    this.renderBookTable();
+  }
+
+  filterBookArray(book) {
+    this.books = this.books.filter((currentBook) => {
+      return book.isbn != currentBook.isbn;
+    });
+    // [1, 2, 3, 4]
+    // [1, 3, 4]
+  }
+
+  saveBooksToLocalStorage() {
+    const json = JSON.stringify(this.books);
+    // [{}, {}]
+    // "[{}{}]"
+    localStorage.setItem('books', json);
+  }
+
+  loadBooksFromLocalStorage() {
+    const json = localStorage.getItem('books');
+    if (json) {
+      const bookArr = JSON.parse(json);
+      // "[{}{}]"
+      // [{}, {}]
+      this.books = bookArr.map((book) => Book.fromJSON(book));
+    }
   }
 }
 
