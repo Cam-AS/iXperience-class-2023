@@ -124,8 +124,6 @@ class UI {
     this.books = this.books.filter((currentBook) => {
       return book.isbn != currentBook.isbn;
     });
-    // [1, 2, 3, 4]
-    // [1, 3, 4]
   }
 
   saveBooksToLocalStorage() {
