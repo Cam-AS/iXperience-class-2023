@@ -13,6 +13,7 @@ import TaskTable from './components/TaskTable';
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  // useEffect is a React Hook
   useEffect(() => {
     if (!tasks.length) {
       loadTasksFromLocalStorage();
@@ -31,7 +32,9 @@ function App() {
 
   function onTaskCreate(name) {
     // create the task
+    // unique id
     const id = new Date().getTime();
+    // new task instance
     const task = new Task(id, name, false);
 
     // add thee task to the state tasks
