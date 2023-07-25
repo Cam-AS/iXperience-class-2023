@@ -11,9 +11,11 @@ function App() {
   const [appCount, setAppCount] = useState(0);
 
   return (
-    // Helps us avoid double updates, strange effects, double animations etc
     <div className="container mt-5">
       <h1 className="text-center">React Lifecycle</h1>
+      <p>
+        Helps us avoid double updates, strange effects, double animations etc
+      </p>
       <ul>
         <li>componentWillMount - Immediately before initial rendering</li>
         <li>
