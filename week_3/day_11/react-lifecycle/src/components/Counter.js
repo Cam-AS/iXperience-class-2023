@@ -7,27 +7,27 @@ export default function Counter(props) {
   // Will run when component is initialized
   useEffect(() => {
     // Subscribe
-    console.log('component did mount');
+    console.log('Counter component did mount');
 
     return () => {
       // Unsubscribe
-      console.log('component did unmount');
+      console.log('Counter component did unmount');
     };
   }, []);
 
   // Will run when props.appcount is changed
   useEffect(() => {
-    console.log('appCount did change');
+    console.log('Counter appCount did change');
   }, [props.appCount]);
 
   // Will run when count2 is changed
   useEffect(() => {
-    console.log('count 2 did update');
+    console.log('Counter count 2 did update');
   }, [count2]);
 
   // Will run when either count1 or count2 is changed
   useEffect(() => {
-    console.log('a count did update');
+    console.log('In Counter, a count did update');
   }, [count1, count2]);
 
   return (

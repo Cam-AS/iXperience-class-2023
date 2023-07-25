@@ -5,12 +5,12 @@ export default function Clock() {
 
   // Same as componentDidMount + componentDidUpdate
   useEffect(() => {
-    console.log('componentDidMount + componentDidUpdate');
+    console.log('Clock, componentDidMount + componentDidUpdate');
   });
 
   // Same as componentDidMount
   useEffect(() => {
-    console.log('componentDidMount');
+    console.log('Clock, componentDidMount');
 
     // Created Subscriptions
     const id = setInterval(() => {
@@ -21,14 +21,14 @@ export default function Clock() {
     return () => {
       // Stop subscriptions
       // Stop app crashes and memory consumption
-      console.log('componentWillUnmount');
+      console.log('Clock, componentWillUnmount');
       // Use clearInterval to stop the time when componentWillUnmount
       clearInterval(id);
     };
   }, []);
 
   useEffect(() => {
-    console.log('date did update');
+    console.log('Clock, date did update');
   }, [date]);
 
   return (

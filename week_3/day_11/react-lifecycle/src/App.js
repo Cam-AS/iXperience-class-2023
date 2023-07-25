@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Clock from './components/Clock';
 
 function App() {
-  const [showCounter, setShowCounter] = useState(true);
+  const [showCounter, setShowCounter] = useState(false);
   const [appCount, setAppCount] = useState(0);
 
   return (
