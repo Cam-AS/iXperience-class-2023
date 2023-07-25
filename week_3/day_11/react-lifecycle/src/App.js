@@ -41,8 +41,8 @@ function App() {
         </li>
       </ul>
 
-      {/* <Clock></Clock> */}
-      {showCounter ? <Counter appCount={appCount} /> : <></>}
+      <Clock></Clock>
+      {/* {showCounter ? <Counter appCount={appCount} /> : <></>} */}
       <button
         className="btn btn-primary me-1"
         onClick={() => setShowCounter(!showCounter)}

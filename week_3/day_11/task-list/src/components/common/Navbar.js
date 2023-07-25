@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
@@ -10,9 +9,9 @@ export default function Navbar(props) {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand">Task List</a>
+        <div className="navbar-brand">Navbar</div>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,7 +21,7 @@ export default function Navbar(props) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <i className="bi bi-list"></i>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -33,23 +32,23 @@ export default function Navbar(props) {
             </li>
             {props.user ? (
               <li className="nav-item">
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={onLogoutClicked}
-                >
+                <div className="btn btn-primary" onClick={onLogoutClicked}>
                   Logout
-                </button>
+                </div>
               </li>
             ) : (
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">
-                  Register
-                </Link>
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/register">
+                    Register
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                </li>
+              </>
             )}
           </ul>
         </div>
