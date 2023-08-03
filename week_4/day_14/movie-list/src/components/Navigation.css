@@ -1,0 +1,12 @@
+.nav-link {
+  text-decoration: none;
+  color: red;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.nav-link:hover {
+  color: yellow;
+}
